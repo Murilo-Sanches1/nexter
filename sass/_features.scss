@@ -1,0 +1,53 @@
+.features {
+  grid-column: center-start / center-end;
+
+  display: grid;
+  // + grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 6rem;
+  margin: 15rem 0;
+  align-items: start;
+
+  @media only screen and (max-width: $breakpoint-md) {
+    margin: 7.5rem 0;
+  }
+}
+
+.feature {
+  // ! fallback, teria que recriar o site inteiro usando float para garantir compatibilidade
+  // ! mas hoje em dia grid e flexbox são muito suportados
+  // float: left;
+  // width: 33.333%;
+  // margin-bottom: 6rem;
+  // ! fallback = criar uma versão para browsers modernos e uma para defasados
+  // .features {
+  //   @supports (display: grid) {
+  //     display: grid;
+  //     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  //     gap: 6rem;
+  //     margin: 15rem 0;
+  //     align-items: start;
+  //   }
+  // }
+
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 2.5rem;
+  row-gap: 1.5rem;
+
+  &__icon {
+    width: 4.5rem;
+    height: 4.5rem;
+    fill: $colorPrimary;
+    // ! -1 só funciona para chegar no final de um grid explícito
+    // - grid implícito - rows / columns automaticas para caber o conteúdo
+    // - grid explícito - rows / columns criadas manualmente
+    grid-row: 1 / -1;
+    transform: translateY(-1rem);
+  }
+
+  &__text {
+    font-size: 1.7rem;
+  }
+}

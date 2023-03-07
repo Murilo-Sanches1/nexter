@@ -1,0 +1,67 @@
+.header {
+  background-color: $colorGreyDark1;
+  grid-column: full-start / col-end 6;
+  background-image: linear-gradient(
+      rgba($colorSecondary, 0.93),
+      rgba($colorSecondary, 0.93)
+    ),
+    url(../assets/images/hero.jpeg);
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
+  grid-template-columns: minmax(min-content, max-content);
+  justify-content: center;
+  row-gap: 1.5rem;
+  padding: 4rem 8rem 8rem 8rem;
+
+  @media only screen and (max-width: $breakpoint-md) {
+    grid-column: 1 / -1;
+  }
+
+  @media only screen and (max-width: $breakpoint-sm) {
+    padding: 5rem;
+  }
+
+  &__logo {
+    height: 3rem;
+    justify-self: center;
+  }
+
+  &__btn {
+    align-self: start;
+    justify-self: start;
+  }
+
+  &__seenon-text {
+    // + texto também é tradado como grid item
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    gap: 1.5rem;
+    align-items: center;
+    font-size: 1.6rem;
+    color: $colorGreyLight2;
+
+    &::before,
+    &::after {
+      content: "";
+      height: 0.1rem;
+      display: block;
+      background-color: currentColor;
+    }
+  }
+
+  &__seenon-logos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    justify-items: center;
+    align-items: center;
+
+    img {
+      max-width: 100%;
+      max-height: 2.5rem;
+      filter: brightness(70%);
+    }
+  }
+}
